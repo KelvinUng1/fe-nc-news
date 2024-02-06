@@ -1,0 +1,78 @@
+#root {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(77deg, #4c90d4, #ffffff, #7d7bcc);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0px solid black;
+}
+
+main#app {
+  width: 90%;
+  margin-top: 15px;
+}
+
+/*NavBar*/
+section {
+  padding-top: 70px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+
+.nav-item {
+  color: white;
+}
+
+/* Each article card*/
+.card-container-flex {
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+}
+
+.card-content {
+  display: flex;
+  background-color: aliceblue;
+  margin: 2px;
+}
+
+.text-content .card-title {
+  font-size: medium;
+}
+
+.text-content {
+  flex: 1;
+  padding: 5px;
+}
+.img-thumbnail {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+
+/*Phonenot working being overriden by bootstrap
+@media only screen and (min-width: 600px) {
+  #app {
+    .img-thumbnail {
+        max-width: 50px;
+        max-height: 50px;
+      }
+      .text-content {
+      .card-title {
+        font-size: small;
+      }
+    }
+  }
+}*/
