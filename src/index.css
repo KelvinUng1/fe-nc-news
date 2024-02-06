@@ -3,10 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   background-image: linear-gradient(77deg, #4c90d4, #ffffff, #7d7bcc);
 }
-
 
 * {
   margin: 0;
@@ -15,17 +13,13 @@
   border: 0px solid black;
 }
 
-main#app {
-  width: 100%;
-  padding-top:  70px;
-}
 /*Home*/
-#home-content{
-    text-align: center;
+#home-content {
+  text-align: center;
 }
 /*NavBar*/
-section {
-  padding-top: 70px;
+body {
+  padding-top: 65px;
 }
 
 .nav-link:hover {
@@ -38,14 +32,14 @@ section {
 }
 
 /* Each article card*/
-.card-container{
-    display: flex;
-    flex-direction: column;
-    padding:10px;
-  }
-  .card-body{
-      background-color: aliceblue;
-  }
+.card-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.card-body {
+  background-color: aliceblue;
+}
 
 /* Loading + Spinner*/
 .loading-container,
@@ -63,7 +57,8 @@ section {
 }
 
 .spinner-container .spinner-border {
-  width: 6rem; 
-  height: 6rem; 
-  
+  width: 6rem;
+  height: 6rem;
 }
+
+/*Error*/
