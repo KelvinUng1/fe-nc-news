@@ -1,10 +1,13 @@
 import axios from "axios";
 
+const newsApi = axios.create({
+    baseURL:'https://newsapp-aifw.onrender.com/api'
+})
 export const getArticles = ()=>{
-    return axios
-    .get("https://newsapp-aifw.onrender.com/api/articles")
+    return newsApi
+    .get("/articles")
     .then(({data}) => {
-        console.log(data)
         return data.articles
     })
+    
 }

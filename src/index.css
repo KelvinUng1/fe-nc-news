@@ -16,10 +16,13 @@
 }
 
 main#app {
-  width: 90%;
-  margin-top: 15px;
+  width: 100%;
+  padding-top:  70px;
 }
-
+/*Home*/
+#home-content{
+    text-align: center;
+}
 /*NavBar*/
 section {
   padding-top: 70px;
@@ -35,44 +38,32 @@ section {
 }
 
 /* Each article card*/
-.card-container-flex {
-  display: flex;
-  flex-direction: column;
-
-  padding: 20px;
-}
-
-.card-content {
-  display: flex;
-  background-color: aliceblue;
-  margin: 2px;
-}
-
-.text-content .card-title {
-  font-size: medium;
-}
-
-.text-content {
-  flex: 1;
-  padding: 5px;
-}
-.img-thumbnail {
-  max-width: 200px;
-  max-height: 200px;
-}
-
-
-/*Phonenot working being overriden by bootstrap
-@media only screen and (min-width: 600px) {
-  #app {
-    .img-thumbnail {
-        max-width: 50px;
-        max-height: 50px;
-      }
-      .text-content {
-      .card-title {
-        font-size: small;
-      }
-    }
+.card-container{
+    display: flex;
+    flex-direction: column;
+    padding:10px;
   }
-}*/
+  .card-body{
+      background-color: aliceblue;
+  }
+
+/* Loading + Spinner*/
+.loading-container,
+.spinner-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.loading-container p {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.spinner-container .spinner-border {
+  width: 6rem; 
+  height: 6rem; 
+  
+}
