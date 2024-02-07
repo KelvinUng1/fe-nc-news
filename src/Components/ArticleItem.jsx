@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
-import { format } from "date-fns";
+import Comments from "./Comments";
+import { formatDate } from "../utils";
 import Loading from "./Loading";
 import RedSpinner from "./Spinner";
 import Card from "react-bootstrap/Card";
@@ -28,9 +29,8 @@ function ArticleItem() {
   if (isLoading) {
     return (
       <>
-        {" "}
         <Loading />
-        <RedSpinner />{" "}
+        <RedSpinner />
       </>
     );
   }
@@ -39,33 +39,41 @@ function ArticleItem() {
     return <Error error={error} />;
   }
 
-  const formattedDate = article.created_at
-    ? format(new Date(article.created_at), "dd/MM/yyyy HH:mm")
-    : "Invalid Date";
-
   return (
+     <>
     <Card>
       <Card.Body>
         <Card.Title>{article.title}</Card.Title>
         <Card.Text>
-          {" "}
-          {article.author} - {formattedDate}
+         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <p1>{article.author}</p1> 
+          <p2>{formatDate(article.created_at)}</p2>
+          <p3>$topic</p3>
+        </div>
         </Card.Text>
+
         {article.article_img_url && (
-          <Card.Img
+            <Card.Img
             variant="top"
             src={article.article_img_url}
             alt={article.title}
-          />
-        )}
+            />
+            )}
 
         <Card.Text></Card.Text>
 
         <Card.Text>{article.body}</Card.Text>
 
-        <Card.Text>Votes:{article.votes}</Card.Text>
+        <Card.Text>Votes: {article.votes}</Card.Text>
+        <Card.Text>{article.comment_count} comments</Card.Text>
+
       </Card.Body>
     </Card>
+
+    <section>
+        <Comments article={article} />
+    </section>
+    </>
   );
 }
 
