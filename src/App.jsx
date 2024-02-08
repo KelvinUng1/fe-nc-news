@@ -1,12 +1,11 @@
 import Navbar from "./Components/Navbar";
-import Home from "./Components/home";
+import Home from "./Components/Home";
 import Articles from "./Components/Articles";
 import ArticleItem from "./Components/ArticleItem";
 import Users from "./Components/Users";
 import { Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Components/contexts/UserContext";
 import { useState } from "react";
-
 
 
 function App() {
