@@ -43,8 +43,9 @@ const Articles = () => {
 
       <div className="card-container">
         {articles.map((article) => (
-          <Link to={`/articles/${article.article_id}`} key={article.article_id}>
-            <Card key={article.article_id} className="mb-3">
+          <Link to={`/articles/${article.article_id}`}style={{ textDecoration: 'none' }} key={article.article_id} className="article-card">
+            <Card key={article.article_id} className="mb-3 custom-article-card">
+              <div className ="card-content-wrapper">
               <div className="row g-0">
                 <div className="col-md-8">
                   <Card.Body>
@@ -62,6 +63,7 @@ const Articles = () => {
                     alt={`picture for ${article.title}`}
                     className="img-thumbnail float-right"
                   />
+                  </div>
                 </div>
               </div>
             </Card>

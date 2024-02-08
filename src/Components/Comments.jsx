@@ -3,17 +3,38 @@ import { getComments } from "../api";
 import { useParams } from "react-router-dom";
 import { ListGroup } from "react-bootstrap";
 import { formatDate } from "../utils";
+import Loading from "./Loading";
+import RedSpinner from "./Spinner";
+import { HandThumbsUp, HandThumbsDown } from "react-bootstrap-icons";
 function Comments() {
     const [comments, setComments] = useState([]);
     const { article_id } = useParams();
-  
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
       getComments(article_id)
       .then((comments) => {
         setComments(comments);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setIsLoading(false);
       });
     }, [article_id]);
-  
+
+    if (isLoading) {
+      return (
+        <>
+          <Loading />
+          <RedSpinner />
+        </>
+      );
+    }
+    if (error !== null) {
+      return <Error error={error} />;
+    }
     return (
         <section style={{ marginTop: '20px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
           <h2 className="mb-3 fs-5">Comments:</h2>
@@ -28,7 +49,8 @@ function Comments() {
 
                 <p className="mb-0">{comment.body}</p> 
                 <br></br>
-                <p>votes: {comment.votes} upvote:downvote</p>
+                <p>votes:  upvote:downvote</p>
+                <HandThumbsUp /> Like {comment.votes}  {" "} <HandThumbsDown /> Dislike
               </ListGroup.Item>
             ))}
           </ListGroup>
