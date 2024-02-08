@@ -25,6 +25,7 @@ body {
 .nav-link:hover {
   text-decoration: underline;
   text-decoration-color: white;
+  text-decoration-thickness: 5px;
 }
 
 .nav-item {
@@ -41,6 +42,13 @@ body {
   background-color: aliceblue;
 }
 
+.custom-article-card:hover {
+  color: #dd2a2a;
+  border: 3px solid #333333;
+  transform: scale(1.05);
+  border-color: #dd2a2a;
+  transition: transform 0.3s ease-in-out;
+}
 /* Loading + Spinner*/
 .loading-container,
 .spinner-container {
@@ -62,3 +70,35 @@ body {
 }
 
 /*Error*/
+
+
+/* netflix like cards*/
+/* Custom Styles for Netflix-like Appearance */
+.netflix-card:hover {
+  background-color: #1c1c1c;
+  color: #dd2a2a;
+  border: 3px solid #333333;
+  transform: scale(1.05);
+  border-color: #dd2a2a;
+  transition: transform 0.3s ease-in-out;
+}
+
+.netflix-card-image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.netflix-card-title {
+  font-size: 1.5rem;
+  text-decoration:none !important;
+}
+
+
+/* 
+.like-active { 
+  background-color: #FF0063;
+}
+
+.dislike-active { 
+  background-color: #394350;
+} */

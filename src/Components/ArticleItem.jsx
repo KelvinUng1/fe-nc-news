@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
 import Comments from "./Comments";
+import Votes from "./Votes";
 import { formatDate } from "../utils";
 import Loading from "./Loading";
 import RedSpinner from "./Spinner";
@@ -44,13 +45,13 @@ function ArticleItem() {
     <Card>
       <Card.Body>
         <Card.Title>{article.title}</Card.Title>
-        <Card.Text>
-         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <p1>{article.author}</p1> 
-          <p2>{formatDate(article.created_at)}</p2>
-          <p3>$topic</p3>
+        <Card.Subtitle className="mb-3 text-muted">
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <span>{article.author}</span>
+        <span>{formatDate(article.created_at)}</span>
+        <span>$topic</span>
         </div>
-        </Card.Text>
+        </Card.Subtitle>
 
         {article.article_img_url && (
             <Card.Img
@@ -63,9 +64,12 @@ function ArticleItem() {
         <Card.Text></Card.Text>
 
         <Card.Text>{article.body}</Card.Text>
-
-        <Card.Text>Votes: {article.votes}</Card.Text>
-        <Card.Text>{article.comment_count} comments</Card.Text>
+        <Card.Text >
+        {/* style={{ display: 'flex', justifyContent: 'space-between', verticalAlign: "bottom"}} */}
+        <Votes article={article}/>{article.comment_count} comments
+       
+        </Card.Text>
+       
 
       </Card.Body>
     </Card>
