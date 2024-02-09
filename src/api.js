@@ -50,7 +50,6 @@ export const patchArticleVotes = (article_id, votes) => {
     return newsApi
       .post(`/articles/${article_id}/comments`, comment)
       .then(({ data }) => {
-        console.log("postComment successful>>>>>>", data);
         return data.comment;
       })
     }

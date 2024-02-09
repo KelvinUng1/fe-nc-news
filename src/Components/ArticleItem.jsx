@@ -60,8 +60,7 @@ function ArticleItem() {
             alt={article.title}
             />
             )}
-
-  
+            
         <Card.Text>{article.body}</Card.Text>
         <div>
         
@@ -69,8 +68,6 @@ function ArticleItem() {
         {article.comment_count} comments
        
         </div>
-       
-
       </Card.Body>
     </Card>
 

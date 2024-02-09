@@ -11,7 +11,6 @@ export const PostComment = ({ article_id, comments, setComments  }) => {
   const { user, setUser } = useContext(UserContext);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-
   const handlePostComment = (event) => {
     event.preventDefault();
     if (user && text.trim() !== "") {
