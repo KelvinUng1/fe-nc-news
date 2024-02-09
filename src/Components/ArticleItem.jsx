@@ -65,7 +65,8 @@ function ArticleItem() {
         <Card.Text>{article.body}</Card.Text>
         <div>
         
-        <Voter article_id={article.article_id} votes={article.votes} setArticle={setArticle}/> {article.comment_count} comments
+        <Voter article_id={article.article_id} votes={article.votes} setArticle={setArticle}/> 
+        {article.comment_count} comments
        
         </div>
        
