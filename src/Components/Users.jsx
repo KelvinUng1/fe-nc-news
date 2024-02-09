@@ -6,7 +6,7 @@ import Loading from "./Loading";
 import RedSpinner from "./Spinner";
 import { Card, Col, Row, Container} from "react-bootstrap";
 
-
+//use memo/ can store previous states on button click then use memo to redirect
 const Users = () => {
     const { user: currentUser, setUser: setCurrentUser } = useContext(UserContext);
     const [users, setUsers] = useState([])

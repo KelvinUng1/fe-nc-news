@@ -45,7 +45,7 @@ function Comments() {
     return (
       <>
         <section style={{ marginTop: '20px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
-          <PostComment article_id={article_id} onCommentPosted={handleCommentPosted}/>
+        <PostComment article_id={article_id} onCommentPosted={handleCommentPosted} comments={comments} setComments={setComments} />
           <h2 className="mb-3 fs-5">Comments:</h2>
           
           <ListGroup>

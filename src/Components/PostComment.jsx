@@ -1,29 +1,26 @@
 import { useState, useContext } from "react";
-import { postComment } from "../api";
+import { postArticleComment } from "../api";
 import { UserContext } from "./contexts/UserContext";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import RedSpinner from "./Spinner";
 
-export const PostComment = ({ article_id, onCommentPosted }) => {
+export const PostComment = ({ article_id, comments, setComments  }) => {
   const [postedComment, setPostedComment] = useState("");
   const [text, setText] = useState("");
   const { user, setUser } = useContext(UserContext);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [comments, setComments] = useState([]);
+  
 
   const handlePostComment = (event) => {
     event.preventDefault();
     if (user && text.trim() !== "") {
       setIsSubmitting(true);
 
-      postComment(
-        article_id,
-        { body: text, username: user.username }
-      )
+      postArticleComment( { body: text, username: user.username }, article_id)
         .then((newComment) => {
-          console.log("postComment response:", newComment);
-          setComments((prevComments) => [newComment, ...prevComments ]);
+
+           setComments([newComment, ...comments])
 
           setPostedComment(newComment);
           setText("");

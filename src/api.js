@@ -31,8 +31,8 @@ export const getComments = (article_id) => {
 export const getUsers = () => {
     return newsApi
     .get('/users')
-    .then((data) => {
-        return data.data.users
+    .then(({data}) => {
+        return data.users
     })
 }
 
@@ -46,27 +46,20 @@ export const patchArticleVotes = (article_id, votes) => {
     })
   };
 
-  export const postComment = (article_id, comment) => {
-    console.log("article id>>", article_id);
-    console.log("comment>>>>>>>>>", comment);
-  
+  export const postArticleComment = (comment, article_id ) => {
     return newsApi
       .post(`/articles/${article_id}/comments`, comment)
       .then(({ data }) => {
-        console.log("postComment successful:", data);
-        return data.newComment;
+        console.log("postComment successful>>>>>>", data);
+        return data.comment;
       })
-      .catch((error) => {
-        console.log("postComment error:", error);
-        throw error;
-      });
-  };
+    }
 
   export const getUserByUsername = (username)=>{
     return api
     .get(`/users/${username}`)
-    .then((data) => {
-        return data.data.user
+    .then(({data}) => {
+        return data.user
     })
     .catch((err)=>{
         console.log(err)
