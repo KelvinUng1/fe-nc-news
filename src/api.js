@@ -45,3 +45,30 @@ export const patchArticleVotes = (article_id, votes) => {
         return data.data.votes
     })
   };
+
+  export const postComment = (article_id, comment) => {
+    console.log("article id>>", article_id);
+    console.log("comment>>>>>>>>>", comment);
+  
+    return newsApi
+      .post(`/articles/${article_id}/comments`, comment)
+      .then(({ data }) => {
+        console.log("postComment successful:", data);
+        return data.newComment;
+      })
+      .catch((error) => {
+        console.log("postComment error:", error);
+        throw error;
+      });
+  };
+
+  export const getUserByUsername = (username)=>{
+    return api
+    .get(`/users/${username}`)
+    .then((data) => {
+        return data.data.user
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+}

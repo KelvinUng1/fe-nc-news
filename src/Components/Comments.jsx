@@ -6,6 +6,9 @@ import { formatDate } from "../utils";
 import Loading from "./Loading";
 import RedSpinner from "./Spinner";
 import { HandThumbsUp, HandThumbsDown } from "react-bootstrap-icons";
+import { PostComment } from "./PostComment";
+
+
 function Comments() {
     const [comments, setComments] = useState([]);
     const { article_id } = useParams();
@@ -35,15 +38,22 @@ function Comments() {
     if (error !== null) {
       return <Error error={error} />;
     }
+
+    const handleCommentPosted = (newComment) => {
+      setComments((prevComments) => [newComment, ...prevComments]);
+    };
     return (
+      <>
         <section style={{ marginTop: '20px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
+          <PostComment article_id={article_id} onCommentPosted={handleCommentPosted}/>
           <h2 className="mb-3 fs-5">Comments:</h2>
+          
           <ListGroup>
             {comments.map((comment) => (
               <ListGroup.Item key={comment.comment_id} className="mb-3" style={{ backgroundColor: '#f8f9fa', borderRadius: '8px', fontSize:"smaller"}}>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <h5 className="mb-1 text-danger fs-6">{comment.author}</h5>
+                <h5 className="mb-1 text-danger fs-6">{comment.author }</h5>
                 <p style={{ textAlign: 'right' }}>{formatDate(comment.created_at)}</p>
                 </div>
 
@@ -54,6 +64,7 @@ function Comments() {
             ))}
           </ListGroup>
         </section>
+        </>
       );
     }
   
