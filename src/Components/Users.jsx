@@ -26,7 +26,6 @@ const Users = () => {
     }, []);
 
     const handleUserClick = (selectedUser) => {
-      console.log("setting user", selectedUser)
       setCurrentUser(selectedUser);
       //navigate('/')
     };

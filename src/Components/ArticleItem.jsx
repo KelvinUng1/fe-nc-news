@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
 import Comments from "./Comments";
-import Votes from "./Votes";
+import Voter from "./Voter";
 import { formatDate } from "../utils";
 import Loading from "./Loading";
 import RedSpinner from "./Spinner";
@@ -61,14 +61,13 @@ function ArticleItem() {
             />
             )}
 
-        <Card.Text></Card.Text>
-
+  
         <Card.Text>{article.body}</Card.Text>
-        <Card.Text >
-        {/* style={{ display: 'flex', justifyContent: 'space-between', verticalAlign: "bottom"}} */}
-        <Votes article={article}/>{article.comment_count} comments
+        <div>
+        
+        <Voter article_id={article.article_id} votes={article.votes} setArticle={setArticle}/> {article.comment_count} comments
        
-        </Card.Text>
+        </div>
        
 
       </Card.Body>

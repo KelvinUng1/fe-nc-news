@@ -3,7 +3,6 @@ import { UserContext } from "./contexts/UserContext";
 const Home = () => {
 
   const {user} = useContext(UserContext)
-  console.log("current user:", user)
   return (  
     <section id="home-content">
     <h1>Welcome to Northcoder News!</h1>
