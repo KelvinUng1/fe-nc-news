@@ -49,8 +49,7 @@ function Comments() {
 
                 <p className="mb-0">{comment.body}</p> 
                 <br></br>
-                <p>votes:  upvote:downvote</p>
-                <HandThumbsUp /> Like {comment.votes}  {" "} <HandThumbsDown /> Dislike
+                <HandThumbsUp /> {comment.votes}  {" "} <HandThumbsDown /> 
               </ListGroup.Item>
             ))}
           </ListGroup>
